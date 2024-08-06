@@ -31,7 +31,6 @@
 
     <title>jabar_super_app_scanner</title>
     <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
 
     <meta
       http-equiv="Content-Security-Policy"
@@ -39,7 +38,15 @@
     />
   </head>
   <body>
-    <img src="assets/assets/images/logo.png" class="center" />
+    <img
+      src="assets/assets/images/logo.png"
+      style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+    />
     <script src="flutter_bootstrap.js" async></script>
   </body>
 </html>
