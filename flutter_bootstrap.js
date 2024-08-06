@@ -386,22 +386,15 @@ _flutter.loader.load({
   },
 });
 
-const loadingDiv = document.createElement("div");
-loadingDiv.className = "loading";
-document.body.appendChild(loadingDiv);
-const loaderDiv = document.createElement("div");
-loaderDiv.className = "loader";
-loadingDiv.appendChild(loaderDiv);
-
-// Customize the app initialization process
+const loading = document.createElement("div");
+document.body.appendChild(loading);
+loading.textContent = "Loading Entrypoint...";
 _flutter.loader.load({
   onEntrypointLoaded: async function (engineInitializer) {
+    loading.textContent = "Initializing engine...";
     const appRunner = await engineInitializer.initializeEngine();
 
-    // Remove the loading spinner when the app runner is ready
-    if (document.body.contains(loadingDiv)) {
-      document.body.removeChild(loadingDiv);
-    }
+    loading.textContent = "Running app...";
     await appRunner.runApp();
   },
 });
